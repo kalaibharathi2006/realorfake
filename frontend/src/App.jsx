@@ -54,7 +54,10 @@ function App() {
     formData.append('file', file)
 
     const isVideo = file.type.startsWith('video')
-    const endpoint = isVideo ? 'http://localhost:8000/detect/video' : 'http://localhost:8000/detect/image'
+
+    // Dynamically use the production URL if provided, otherwise fallback to localhost
+    const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+    const endpoint = isVideo ? `${API_BASE}/detect/video` : `${API_BASE}/detect/image`
 
     try {
       const response = await fetch(endpoint, {

@@ -31,6 +31,12 @@ npm run dev
 ```
 Frontend runs at: http://localhost:5173
 
+## Deployment (Production)
+
+When deploying the frontend (e.g., to Vercel), set the following Environment Variable so it can talk to your backend:
+
+- `VITE_API_URL`: Your backend URL (e.g., `https://your-backend.onrender.com`)
+
 ## Project Structure
 
 ```
